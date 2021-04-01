@@ -1,10 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
-const Loading = () => {
+const Loading = ({ errorMsg }) => {
+    let text = ""
+    if (errorMsg) {
+        text = errorMsg
+    } else {
+        text = "Getting the fuking Weather"
+    }
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Getting the fuking Weather</Text>
+            <StatusBar barStyle={'dark-content'} />
+            <Text style={styles.text}>{text}</Text>
         </View>
     )
 }
